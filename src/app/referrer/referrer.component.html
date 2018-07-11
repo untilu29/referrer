@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container" fullscreen>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Udigo</span>
+    </mat-toolbar>
+    <div class="container" layout-fill layout="column" layout-align="center">
+        <mat-card class="example-card" layout="row" layout-align="center">
+            <mat-card-header >
+              <!-- <div mat-card-avatar class="example-header-image"></div> -->
+              <mat-card-title>₫0 off first ride</mat-card-title>
+              <mat-card-subtitle>Đăng ký để yêu cầu quà tặng của bạn từ Phuc</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- <img mat-card-image src="https://www.witzmobility.com/wp-content/themes/twentytwelve/images/logo_main_yellow.png" alt="Photo of a Shiba Inu"> -->
+                <div class="example-container">
+                    <mat-form-field>
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="Enter your email" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                      </mat-form-field>
+                  
+                    <mat-form-field>
+                      <mat-select placeholder="Country Code">
+                        <mat-option value="option">+84</mat-option>
+                        <mat-option value="option">+82</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Phone No">
+                      </mat-form-field>
+
+                  </div> 
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+   
+
+
+
+
+
+
+ 
+  </mat-sidenav-content>
+</mat-sidenav-container>
