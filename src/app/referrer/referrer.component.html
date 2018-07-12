@@ -12,22 +12,25 @@
             </mat-card-header>
             <mat-card-content>
                 <!-- <img mat-card-image src="https://www.witzmobility.com/wp-content/themes/twentytwelve/images/logo_main_yellow.png" alt="Photo of a Shiba Inu"> -->
-                <div class="example-container">
-                    <mat-form-field>
+                <!-- https://stackblitz.com/edit/angular-flex-layout-seed?file=app%2Ftest.component.ts -->
+                <div fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                  <div fxFlex="15">
+                    <mat-form-field fxFlex="15">
                       <input matInput placeholder="Name">
                     </mat-form-field>
-                    <mat-form-field>
+                  </div>
+                    <mat-form-field fxFlex="100">
                         <input matInput placeholder="Enter your email" [formControl]="email" required>
                         <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                       </mat-form-field>
                   
-                    <mat-form-field>
+                    <mat-form-field fxFlex="100">
                       <mat-select placeholder="Country Code">
                         <mat-option value="option">+84</mat-option>
                         <mat-option value="option">+82</mat-option>
                       </mat-select>
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field fxFlex="100">
                         <input matInput type="number" placeholder="Phone No">
                       </mat-form-field>
 
