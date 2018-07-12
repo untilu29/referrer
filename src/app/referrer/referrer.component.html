@@ -3,52 +3,54 @@
     <mat-toolbar color="primary">
       <span>Udigo</span>
     </mat-toolbar>
-    <div class="container" layout-fill layout="column" layout-align="center">
-        <mat-card class="example-card" layout="row" layout-align="center">
-            <mat-card-header >
-              <!-- <div mat-card-avatar class="example-header-image"></div> -->
-              <mat-card-title>₫0 off first ride</mat-card-title>
-              <mat-card-subtitle>Đăng ký để yêu cầu quà tặng của bạn từ Phuc</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <!-- <img mat-card-image src="https://www.witzmobility.com/wp-content/themes/twentytwelve/images/logo_main_yellow.png" alt="Photo of a Shiba Inu"> -->
-                <!-- https://stackblitz.com/edit/angular-flex-layout-seed?file=app%2Ftest.component.ts -->
-                <div fxLayout="row" fxLayout.xs="column" fxFlexFill>
-                  <div fxFlex="15">
-                    <mat-form-field fxFlex="15">
-                      <input matInput placeholder="Name">
-                    </mat-form-field>
-                  </div>
-                    <mat-form-field fxFlex="100">
-                        <input matInput placeholder="Enter your email" [formControl]="email" required>
-                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-                      </mat-form-field>
-                  
-                    <mat-form-field fxFlex="100">
-                      <mat-select placeholder="Country Code">
-                        <mat-option value="option">+84</mat-option>
-                        <mat-option value="option">+82</mat-option>
-                      </mat-select>
-                    </mat-form-field>
-                    <mat-form-field fxFlex="100">
-                        <input matInput type="number" placeholder="Phone No">
-                      </mat-form-field>
+    <div class="container" fxLayout="row" fxLayoutAlign="center">
+      <form [formGroup]="referrerForm" (ngSubmit)="onSubmit()">
+        <mat-card class="referrer-card" fxLayout="column" fxLayoutAlign="center">
+          <mat-card-header fxLayout="row" fxLayoutAlign="center">
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>₫0 off first ride</mat-card-title>
+            <mat-card-subtitle>Đăng ký để yêu cầu quà tặng của bạn từ Phuc</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <!-- <img mat-card-image src="https://www.witzmobility.com/wp-content/themes/twentytwelve/images/logo_main_yellow.png" alt="Photo of a Shiba Inu"> -->
+            <div fxLayout="column" fxLayout.xs="column" fxFlexFill>
+              <mat-form-field>
+                <input matInput placeholder="Name" formControlName="name">
+                <mat-error *ngIf="referrerForm.controls['name'].invalid">{{getErrorMessage('name')}}</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="referrerForm.controls['email'].invalid">{{getErrorMessage('email')}}</mat-error>
+              </mat-form-field>
 
-                  </div> 
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
+              <div fxLayout="row" fxLayoutGap="5px">
+                <mat-form-field fxFlex="25">
+                  <mat-select placeholder="Country Code" formControlName="countryCode">
+                    <mat-option value="option">+84</mat-option>
+                    <mat-option value="option">+82</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field fxFlex="55">
+                  <input matInput type="number" placeholder="Phone No" formControlName="phoneNo">
+                </mat-form-field>
+                <div fxFlex="20" fxLayoutAlign="center start">
+                  <button mat-raised-button type="button" class="sms-btn" color="accent">Send SMS</button>
+                </div>
+              </div>
+              <mat-form-field>
+                <input matInput type="number" placeholder="OTP Code" max="9999" formControlName="otp">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Referal Code" referralCode>
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!referrerForm.valid">SUBMIT</button>
+            <button mat-raised-button type="button">SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
     </div>
-   
-
-
-
-
-
-
- 
   </mat-sidenav-content>
 </mat-sidenav-container>

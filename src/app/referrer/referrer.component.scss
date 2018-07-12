@@ -21,8 +21,11 @@
   justify-content: center;
   align-items: center;}
 
-.example-card {
-  width: 90vh;
+.referrer-card {
+  min-width: 80vh;
 }
 
+.sms-btn{
+  width: 100%; max-width: 100px;
+}
 

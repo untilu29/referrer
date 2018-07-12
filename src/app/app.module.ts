@@ -8,8 +8,8 @@ import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButt
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-
+import { ReferrerService } from './referrer/referrer.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,9 +35,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ReferrerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
